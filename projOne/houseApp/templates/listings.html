@@ -1,5 +1,7 @@
 {% comment %} ginger tag, allows one to write pure python in html file {% endcomment %}
-{% for house in listings%}
+
+{% for house in list%} {% comment %} the loop goes to our views and references the 
+the key in the dictionary context which is list. it then loops though all the values of list{% endcomment %}
     <ul>
         <li>
             {{house}}
