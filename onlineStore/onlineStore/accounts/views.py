@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from .forms import CustomerSignUpForm
 
@@ -19,6 +20,6 @@ def register(request):
             signup_user = User.objects.get(username=username)
             customer_group = Group.objects.get(Name='Customer')
             customer_group.user_set.add(signup_user)
-        else:
-            form = CustomerSignUpForm()
-        return render(request, 'registration/register.html', {'form':form})
+    else:
+        form = CustomerSignUpForm()
+    return render(request, 'registration/register.html', {'form':form})
